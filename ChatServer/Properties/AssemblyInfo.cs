@@ -6,12 +6,12 @@ using System.Runtime.InteropServices;
 // associated with an assembly.
 
 [assembly: AssemblyTitle("ChatServer")]
-[assembly: AssemblyDescription("")]
-[assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("PsychoCoder.Net")]
+[assembly: AssemblyDescription("ChatServer")]
+[assembly: AssemblyConfiguration("ChatServer")]
+[assembly: AssemblyCompany("Hämmer Electronics")]
 [assembly: AssemblyProduct("ChatServer")]
-[assembly: AssemblyCopyright("Copyright © PsychoCoder.Net 2007")]
-[assembly: AssemblyTrademark("")]
+[assembly: AssemblyCopyright("Copyright © Hämmer Electronics")]
+[assembly: AssemblyTrademark("ChatServer")]
 [assembly: AssemblyCulture("")]
 
 // Setting ComVisible to false makes the types in this assembly not visible 
@@ -23,16 +23,3 @@ using System.Runtime.InteropServices;
 // The following GUID is for the ID of the typelib if this project is exposed to COM
 
 [assembly: Guid("a25bb1cc-c517-46de-8303-59e11a9f02f3")]
-
-// Version information for an assembly consists of the following four values:
-//
-//      Major Version
-//      Minor Version 
-//      Build Number
-//      Revision
-//
-// You can specify all the values or you can default the Revision and Build Numbers 
-// by using the '*' as shown below:
-
-[assembly: AssemblyVersion("1.0.0.1")]
-[assembly: AssemblyFileVersion("1.0.0.1")]
