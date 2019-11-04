@@ -8,7 +8,7 @@ The executable was written and tested in .Net 4.8.
 [![GitHub issues](https://img.shields.io/github/issues/SeppPenner/ChatServer.svg)](https://github.com/SeppPenner/ChatServer/issues)
 [![GitHub forks](https://img.shields.io/github/forks/SeppPenner/ChatServer.svg)](https://github.com/SeppPenner/ChatServer/network)
 [![GitHub stars](https://img.shields.io/github/stars/SeppPenner/ChatServer.svg)](https://github.com/SeppPenner/ChatServer/stargazers)
-[![GitHub license](https://img.shields.io/badge/license-AGPL-blue.svg)](https://raw.githubusercontent.com/SeppPenner/ChatServer/master/License.txt)
+[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://raw.githubusercontent.com/SeppPenner/ChatServer/master/License.txt)
 [![Known Vulnerabilities](https://snyk.io/test/github/SeppPenner/ChatServer/badge.svg)](https://snyk.io/test/github/SeppPenner/ChatServer)
 
 Change history
