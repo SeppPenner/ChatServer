@@ -113,8 +113,13 @@ namespace ChatClient
             {
                 Application.DoEvents();
                 var txtChat = (TextBox)client.Controls[0];
-                txtChat.AppendText($"{reader.ReadLine()}{Environment.NewLine}");
-                txtChat.SelectionStart = txtChat.Text.Length;
+
+                txtChat.UiThreadInvoke(
+                    () =>
+                    {
+                        txtChat.AppendText($"{reader.ReadLine()}{Environment.NewLine}");
+                        txtChat.SelectionStart = txtChat.Text.Length;
+                    });
             }
 
             // ReSharper disable once FunctionNeverReturns
