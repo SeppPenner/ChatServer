@@ -2,7 +2,6 @@ ChatClient and ChatServer
 ====================================
 
 ChatClient and Server is a server/ client implementation in C#.
-The executable was written and tested in .Net 5.0.
 
 [![Build status](https://ci.appveyor.com/api/projects/status/upwt5ork7oubse64?svg=true)](https://ci.appveyor.com/project/SeppPenner/chatserver)
 [![GitHub issues](https://img.shields.io/github/issues/SeppPenner/ChatServer.svg)](https://github.com/SeppPenner/ChatServer/issues)
