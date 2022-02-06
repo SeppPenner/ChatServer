@@ -27,17 +27,17 @@ namespace ChatServer
         /// <summary>
         /// The nick name.
         /// </summary>
-        private string nickName;
+        private string? nickName;
 
         /// <summary>
         /// The reader.
         /// </summary>
-        private StreamReader reader;
+        private StreamReader? reader;
 
         /// <summary>
         /// The writer.
         /// </summary>
-        private StreamWriter writer;
+        private StreamWriter? writer;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="DoCommunicate"/> class.
@@ -54,11 +54,16 @@ namespace ChatServer
         /// Gets the nick name.
         /// </summary>
         /// <returns>The nick name as <see cref="string"/>.</returns>
-        private string GetNickName()
+        private string? GetNickName()
         {
+            if (this.writer is null)
+            {
+                return null;
+            }
+
             this.writer.WriteLine("What is your nickname? ");
             this.writer.Flush();
-            return this.reader.ReadLine();
+            return this.reader?.ReadLine();
         }
 
         /// <summary>
@@ -70,8 +75,12 @@ namespace ChatServer
             {
                 while (true)
                 {
-                    var line = this.reader.ReadLine();
-                    ChatServer.SendMsgToAll(this.nickName, line);
+                    var line = this.reader?.ReadLine();
+
+                    if (!string.IsNullOrWhiteSpace(this.nickName) && !string.IsNullOrWhiteSpace(line))
+                    {
+                        ChatServer.SendMsgToAll(this.nickName, line);
+                    }
                 }
             }
             catch (Exception ex)
@@ -90,13 +99,18 @@ namespace ChatServer
             this.writer.WriteLine("Welcome to PCChat!");
             this.nickName = this.GetNickName();
 
-            while (ChatServer.NickNames.Contains(this.nickName))
+            if (string.IsNullOrWhiteSpace(this.nickName))
+            {
+                return;
+            }
+
+            while (ChatServer.NickNames.Contains(this.nickName!))
             {
                 this.writer.WriteLine("ERROR - Nickname already exists! Please try a new one");
                 this.nickName = this.GetNickName();
             }
 
-            ChatServer.NickNames.Add(this.nickName, this.tcpClient);
+            ChatServer.NickNames.Add(this.nickName!, this.tcpClient);
             ChatServer.NickNameByConnect.Add(this.tcpClient, this.nickName);
             ChatServer.SendSystemMessage("** " + this.nickName + " ** Has joined the room");
             this.writer.WriteLine($"Now Talking.....{Environment.NewLine}-------------------------------");

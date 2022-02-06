@@ -25,12 +25,12 @@ namespace ChatClient
         /// <summary>
         /// The client.
         /// </summary>
-        private static Form client;
+        private static Form client = new();
 
         /// <summary>
         /// The TCP client.
         /// </summary>
-        private static TcpClient tcpClient;
+        private static TcpClient tcpClient = new();
 
         /// <summary>
         /// The main method.

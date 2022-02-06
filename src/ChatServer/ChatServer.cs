@@ -48,12 +48,12 @@ namespace ChatServer
         /// <summary>
         /// Gets or sets the nick names.
         /// </summary>
-        public static Hashtable NickNames { get; set; }
+        public static Hashtable NickNames { get; set; } = new();
 
         /// <summary>
         /// Gets or sets the nick names by connect.
         /// </summary>
-        public static Hashtable NickNameByConnect { get; set; }
+        public static Hashtable NickNameByConnect { get; set; } = new();
 
         /// <summary>
         /// The main method.
@@ -90,12 +90,17 @@ namespace ChatServer
                 {
                     if (t != null)
                     {
-                        var text = (string)NickNameByConnect[t];
-                        SendSystemMessage($"** {text} ** has left the room.");
+                        var nickName = NickNameByConnect[t];
 
-                        if (!string.IsNullOrWhiteSpace(text))
+                        if (nickName is string)
                         {
-                            NickNames.Remove(text);
+                            var text = nickName as string;
+                            SendSystemMessage($"** {text} ** has left the room.");
+
+                            if (!string.IsNullOrWhiteSpace(text))
+                            {
+                                NickNames.Remove(text);
+                            }
                         }
                     }
 
@@ -135,9 +140,11 @@ namespace ChatServer
                         continue;
                     }
 
-                    if (NickNameByConnect[t] != null)
+                    var nickName = NickNameByConnect[t];
+
+                    if (nickName is not null)
                     {
-                        NickNames.Remove(NickNameByConnect[t]);
+                        NickNames.Remove(nickName);
                     }
 
                     NickNameByConnect.Remove(t);
