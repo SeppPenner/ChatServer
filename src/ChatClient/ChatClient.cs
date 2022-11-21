@@ -31,7 +31,7 @@ public partial class ChatClient
     {
         client = new Form { Text = "PCChat - Chat Client" };
 
-        client.Closing += ChatClientClosing;
+        client.Closing += ChatClientClosing!;
         client.Controls.Add(new TextBox());
         client.Controls[0].Dock = DockStyle.Fill;
         client.Controls.Add(new TextBox());
@@ -40,7 +40,7 @@ public partial class ChatClient
         ((TextBox)client.Controls[1]).Multiline = true;
         client.WindowState = FormWindowState.Maximized;
         client.Show();
-        ((TextBox)client.Controls[1]).KeyUp += KeyUp;
+        ((TextBox)client.Controls[1]).KeyUp += KeyUp!;
         tcpClient = new TcpClient();
         tcpClient.Connect("127.0.0.1", 4296);
         var chatThread = new Thread(Run);
